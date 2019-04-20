@@ -40,3 +40,5 @@ for attr in X.columns:
     sns.countplot(x=X[X['stalk-root']!='?'][attr], order=c, ax=ax[1]).set_title('stalk-root != ?')
     
     #Plot the plots
+    To plots Lof=gidtics 
+    
