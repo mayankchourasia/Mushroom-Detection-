@@ -11,34 +11,13 @@ from sklearn.metrics import accuracy_score
 orig = pd.read_csv('mushrooms.csv')
 orig.head()
 
-#The 'class' column contains our labels.
-#It tells us whether the mushroom is 'poisonous' or 'edible'.
-X = orig.drop(['class'], axis=1)
-y = orig['class']
+df['class'].value_counts()
 
-for attr in X.columns:
-    print('\n*', attr, '*')
-    print(X[attr].value_counts())
-    
-    for attr in X.columns:
-    print('\n*', attr, '*')
-    print(X[attr].value_counts())
-    
-    for attr in X.columns:
-    #Format subplots
-    fig, ax = plt.subplots(1,2)
-    plt.subplots_adjust(right=2)
-    
-    #Construct values to count in each column
-    a=set(X[X['stalk-root']=='?'][attr])
-    b=set(X[X['stalk-root']!='?'][attr])
-    c = a.union(b)
-    c = np.sort(np.array(list(c)))
-    
-    #Build each subplot
-    sns.countplot(x=X[X['stalk-root']=='?'][attr], order=c, ax=ax[0]).set_title('stalk-root == ?')
-    sns.countplot(x=X[X['stalk-root']!='?'][attr], order=c, ax=ax[1]).set_title('stalk-root != ?')
-    
-    #Plot the plots
-    To plots Lof=gidtics 
-    
+df.describe()
+
+#data is not skewed and its all categorical 
+#so lets trasform categorical data
+labelEncoder = preprocessing.LabelEncoder()
+for col in df.columns:
+    df[col] = labelEncoder.fit_transform(df[col])
+df.head()
