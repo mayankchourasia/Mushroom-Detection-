@@ -1,3 +1,4 @@
 # Mushroom-Detection-
 
-In the data set we train the machine
+In the data set we are using two algorithms.
+Logistic and KNN 
